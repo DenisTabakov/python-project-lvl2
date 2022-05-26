@@ -42,3 +42,4 @@ def generate_diff(file_1, file_2):
 
 if __name__ == '__main__':
     args = parser.parse_args()
+
