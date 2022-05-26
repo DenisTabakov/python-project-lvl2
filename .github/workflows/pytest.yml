@@ -25,3 +25,5 @@ jobs:
         pip install coverage
     - name: Run pytest
       run: make test
+    - name: Run Coverage
+      run: make test-coverage
