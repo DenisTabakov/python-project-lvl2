@@ -1,10 +1,21 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "Training project at the end of the 2st module"
 authors = ["Denis Tabakov <spbtabakoff@yandex.com>"]
 packages = [
   { include = "gendiff" },
+]
+repository = "https://github.com/DenisTabakov/python-project-lvl2"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Education",
+    "License :: Free For Educational Use",
+    "Natural Language :: English",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Education :: Testing"
 ]
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -14,3 +25,5 @@ python = "^3.8"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+[tool.poetry.scripts]
+gendiff = "gendiff.gendiff:main"
