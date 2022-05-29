@@ -20,7 +20,7 @@ check:
 	selfcheck test lint
 
 test-coverage:
-	poetry run coverage run -m pytest
+	poetry run coverage xml
 
 test:
 	poetry run pytest
