@@ -22,10 +22,6 @@ jobs:
         pip install poetry
         poetry config virtualenvs.in-project true
         pip install pytest
-        pip install pytest-cov
-        pip install coverage
 
     - name: Run pytest
       run: make test
-    - name: Run coverage
-      run: make test-coverage
