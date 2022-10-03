@@ -8,13 +8,13 @@ OUT_FORMATS = {'stylish': stylish.convert, 'plain': plain.convert, 'json': j_son
 def generate_diff():
     data_1, data_2, output_format, output_extension = choose_format()
 
-    path_1 = os.path.join(os.getcwd(), 'output.')
-    output_path = f"{path_1}{str(output_extension)}"
+    # path_1 = os.path.join(os.getcwd(), 'output.')
+    # output_path = f"{path_1}{str(output_extension)}"
 
     result = OUT_FORMATS[output_format](get_diff(data_1, data_2))
 
-    with open(output_path, "w") as output_file:
-        output_file.write(result)
+    # with open(output_path, "w") as output_file:
+        # output_file.write(result)
 
     return result
 
