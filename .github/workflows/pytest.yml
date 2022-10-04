@@ -22,7 +22,9 @@ jobs:
         pip install poetry
         poetry config virtualenvs.in-project true
         pip install pytest
+        pip install pyyaml
         poetry add pytest
+        poetry add pyyaml
 
     - name: Run pytest
       run: poetry run pytest -v
