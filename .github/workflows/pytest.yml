@@ -25,4 +25,4 @@ jobs:
         poetry add pytest
 
     - name: Run pytest
-      run: poetry run coverage run -m pytest -v
+      run: poetry run pytest -v
