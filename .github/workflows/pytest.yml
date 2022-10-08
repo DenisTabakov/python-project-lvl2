@@ -27,4 +27,4 @@ jobs:
         poetry add pyyaml
 
     - name: Run pytest
-      run: poetry run pytest -v
+      run: poetry run coverage run -m pytest -v
