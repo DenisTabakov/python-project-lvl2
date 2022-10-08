@@ -22,6 +22,7 @@ jobs:
           pip install poetry
           pip install pytest
           pip install pytest-cov
+          poetry add pytest-cov
           make install
 
       - name: Test & publish code coverage
