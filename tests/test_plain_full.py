@@ -6,7 +6,7 @@ import json
 
 file_1 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.json')
 file_2 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.json')
-file_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_plan_full.txt')
+file_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_plain_full.txt')
 
 with open(file_1) as f_1:
     data_1 = json.load(f_1)
