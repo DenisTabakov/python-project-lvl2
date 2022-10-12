@@ -41,4 +41,3 @@ def get_diff(data_1, data_2):
             value = [["value", val_1], ["value", val_2]]
         result[flag, key] = value
     return result
-
