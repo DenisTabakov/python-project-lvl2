@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from engine.generate_diff import generate_diff
+from gendiff.engine.generate_diff import generate_diff
 
 
 def main():
