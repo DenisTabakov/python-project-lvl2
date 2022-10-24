@@ -1,4 +1,4 @@
-from engine.generate_diff import get_diff
+from gendiff.generate_diff import get_diff
 from formaters.plain import convert
 import os
 import json
