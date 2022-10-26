@@ -1,8 +1,19 @@
 import argparse
-import os
 import json
 import yaml
 from yaml.loader import SafeLoader
+
+
+def parse(file):
+    if file.endswith(".json"):
+        data = json.load(open(file))
+    elif file.endswith((".yaml", ".yml")):
+        with open(file) as f:
+            data = yaml.load(f, Loader=SafeLoader)
+    elif file.endswith(".txt"):
+        with open(file) as f:
+            data = f.read()
+    return data
 
 
 def choose_format():
@@ -21,21 +32,7 @@ def choose_format():
     output_extension = args.output
     output_format = args.format
 
-    filename_1, file_extension_1 = os.path.splitext(file_1)
-    filename_2, file_extension_2 = os.path.splitext(file_2)
-
-    if file_extension_1 == '.json' and file_extension_2 == '.json':
-        with open(file_1) as f_1:
-            data_1 = json.load(f_1)
-
-        with open(file_2) as f_2:
-            data_2 = json.load(f_2)
-
-    elif (file_extension_1 == '.yaml' or file_extension_1 == '.yml')\
-            and (file_extension_2 == '.yaml' or file_extension_2 == '.yml'):
-        with open(file_1) as f_1:
-            data_1 = yaml.load(f_1, Loader=SafeLoader)
-        with open(file_2) as f_2:
-            data_2 = yaml.load(f_2, Loader=SafeLoader)
+    data_1 = parse(file_1)
+    data_2 = parse(file_2)
 
     return data_1, data_2, output_format, output_extension
