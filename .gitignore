@@ -3,4 +3,5 @@ __pycache__
 dist/
 .pytest_cache/
 coverage.xml
-.idea
+.idea/
+*.pyc
