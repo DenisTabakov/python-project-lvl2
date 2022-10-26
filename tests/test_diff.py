@@ -1,4 +1,4 @@
-from gendiff.engine.generate_diff import get_diff
+from gendiff.generate_diff import get_diff
 from gendiff.formaters import stylish, j_son, plain
 from gendiff.parser import parse
 import os
