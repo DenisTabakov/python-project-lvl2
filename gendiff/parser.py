@@ -29,10 +29,10 @@ def choose_format():
     args = parser.parse_args()
     file_1 = args.first_file
     file_2 = args.second_file
-    output_extension = args.output
+    # output_extension = args.output
     output_format = args.format
 
-    data_1 = parse(file_1)
-    data_2 = parse(file_2)
+    # data_1 = parse(file_1)
+    # data_2 = parse(file_2)
 
-    return data_1, data_2, output_format, output_extension
+    return file_1, file_2, output_format
