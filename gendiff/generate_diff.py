@@ -1,10 +1,10 @@
 from gendiff.formaters import stylish, j_son, plain
-from gendiff.parser import parse, choose_format
+from gendiff.parser import parse
 
 OUT_FORMATS = {'stylish': stylish.convert, 'plain': plain.convert, 'json': j_son.convert}
 
 
-def generate_diff(file_1, file_2, output_format):
+def generate_diff(file_1, file_2, output_format='stylish'):
     data_1 = parse(file_1)
     data_2 = parse(file_2)
     result = OUT_FORMATS[output_format](get_diff(data_1, data_2))
@@ -33,8 +33,3 @@ def get_diff(data_1, data_2):
             value = [["value", val_1], ["value", val_2]]
         result[flag, key] = value
     return result
-
-
-if __name__ == '__main__':
-    file_1, file_2, output_format = choose_format()
-    generate_diff(file_1, file_2, output_format)
