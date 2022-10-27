@@ -23,16 +23,10 @@ def choose_format():
     parser.add_argument('second_file', metavar='second_file', help='')
     parser.add_argument('-f', '--format', metavar='FORMAT', default="stylish",
                         help='set format of output (default: "stylish")')
-    parser.add_argument('-out', '--output', metavar='OUTPUT', default="None",
-                        help='output file extension')
 
     args = parser.parse_args()
     file_1 = args.first_file
     file_2 = args.second_file
-    # output_extension = args.output
     output_format = args.format
-
-    # data_1 = parse(file_1)
-    # data_2 = parse(file_2)
 
     return file_1, file_2, output_format

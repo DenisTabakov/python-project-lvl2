@@ -1,4 +1,3 @@
-import os
 from gendiff.formaters import stylish, j_son, plain
 from gendiff.parser import parse
 
@@ -8,15 +7,7 @@ OUT_FORMATS = {'stylish': stylish.convert, 'plain': plain.convert, 'json': j_son
 def generate_diff(file_1, file_2, output_format):
     data_1 = parse(file_1)
     data_2 = parse(file_2)
-    # output_extension = choose_format()
     result = OUT_FORMATS[output_format](get_diff(data_1, data_2))
-    '''
-    if output_extension != "None":
-        path_1 = os.path.join(os.getcwd(), 'output.')
-        output_path = f"{path_1}{str(output_extension)}"
-        with open(output_path, "w") as output_file:
-            output_file.write(result)
-    '''
     return result
 
 
