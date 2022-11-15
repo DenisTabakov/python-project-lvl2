@@ -43,8 +43,7 @@ def stringify(data, spaces_count=0):
     for key, value in data.items():
         if isinstance(value, dict):
             value = stringify(value, spaces_count + 1)
-        preform = f"{'    ' * spaces_count}{key}: {value}"
-        result += f"{preform.rstrip()}\n"
+        result += f"{'    ' * spaces_count}{key}: {value}\n"
     result += f"{'    ' * spaces_count}}}"
     return result
 
