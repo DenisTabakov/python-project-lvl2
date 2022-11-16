@@ -21,7 +21,6 @@ def transform(data):
 
 
 def format_(data):
-
     result = {}
     for flag_key, main_data in data.items():
         flag, key = flag_key

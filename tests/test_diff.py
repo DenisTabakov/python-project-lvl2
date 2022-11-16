@@ -1,51 +1,50 @@
 from gendiff.generate_diff import get_diff
-from gendiff.formaters import stylish, j_son, plain
+from tests.modified_functions import convert_t
+from gendiff.generate_diff import generate_diff
 from gendiff.parser import parse
 import os
 
 
-file_1 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file1.json')
-file_2 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file2.json')
-file_3 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.json')
-file_4 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.json')
-file_5 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.yaml')
-file_6 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.yaml')
-file_51 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.yml')
-file_61 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.yml')
-file_7 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_stylish.txt')
-file_8 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_stylish_full.txt')
-file_9 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_plain_full.txt')
-file_10 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_json_full.txt')
+json_small_1 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file1.json')
+json_small_2 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file2.json')
+json_full_1 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.json')
+json_full_2 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.json')
+yaml_full_1 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.yaml')
+yaml_full_2 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.yaml')
+yml_full_1 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s1.yml')
+yml_full_2 = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_s2.yml')
+out_stylish_small = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_stylish.txt')
+out_stylish_full = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_stylish_full.txt')
+out_plain_full = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_plain_full.txt')
+out_json_full = os.path.join(os.getcwd(), 'tests', 'fixtures', 'file_json_full.txt')
 
-data_1 = parse(file_1)
-data_2 = parse(file_2)
-data_3 = parse(file_3)
-data_4 = parse(file_4)
-data_5 = parse(file_5)
-data_6 = parse(file_6)
-data_51 = parse(file_51)
-data_61 = parse(file_61)
-diff_stylish_small = parse(file_7)
-diff_stylish_full = parse(file_8)
-diff_plain_full = parse(file_9)
-diff_json_full = parse(file_10)
+data_json_full_1 = parse(json_full_1)
+data_json_full_2 = parse(json_full_2)
+data_yaml_full_1 = parse(yaml_full_1)
+data_yaml_full_2 = parse(yaml_full_2)
+data_yml_full_1 = parse(yml_full_1)
+data_yml_full_2 = parse(yml_full_2)
+diff_stylish_small = parse(out_stylish_small)
+diff_stylish_full = parse(out_stylish_full)
+diff_plain_full = parse(out_plain_full)
+diff_json_full = parse(out_json_full)
 
 
 def test_parse():
-    assert data_3 == data_5
-    assert data_4 == data_6
-    assert data_3 == data_51
-    assert data_4 == data_61
+    assert data_json_full_1 == data_yaml_full_1
+    assert data_json_full_2 == data_yaml_full_2
+    assert data_json_full_1 == data_yml_full_1
+    assert data_json_full_2 == data_yml_full_2
 
 
 def test_stylish():
-    assert stylish.convert(get_diff(data_1, data_2)) == diff_stylish_small
-    assert stylish.convert(get_diff(data_3, data_4)) == diff_stylish_full
+    assert generate_diff(json_small_1, json_small_2) == diff_stylish_small
+    assert convert_t(get_diff(data_json_full_1, data_json_full_2)) == diff_stylish_full
 
 
 def test_plain():
-    assert plain.convert(get_diff(data_3, data_4)) == diff_plain_full
+    assert generate_diff(json_full_1, json_full_2, output_format='plain') == diff_plain_full
 
 
 def test_json():
-    assert j_son.convert(get_diff(data_3, data_4)) == diff_json_full
+    assert generate_diff(json_full_1, json_full_2, output_format='json') == diff_json_full
