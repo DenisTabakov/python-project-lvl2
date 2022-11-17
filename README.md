@@ -14,10 +14,10 @@
 [![asciicast](https://asciinema.org/connect/b7d59a22-91b4-460d-9572-5a40053fe418)](https://asciinema.org/connect/b7d59a22-91b4-460d-9572-5a40053fe418)
 
 ### Comparing files with nesting (format: 'stylish'):
-[![asciicast](https://asciinema.org/a/538405)](https://asciinema.org/a/538405)
+[![asciicast](https://asciinema.org/a/538405.svg)](https://asciinema.org/a/538405)
 
 ### Comparing files with nesting (format: 'plain'):
-[![asciicast](https://asciinema.org/a/538406)](https://asciinema.org/a/538406)
+[![asciicast](https://asciinema.org/a/538406.svg)](https://asciinema.org/a/538406))
 
 ### Comparing files with nesting (format: 'json'):
-[![asciicast](https://asciinema.org/a/538409)](https://asciinema.org/a/538409)
+[![asciicast](https://asciinema.org/a/538409.svg)](https://asciinema.org/a/538409)
